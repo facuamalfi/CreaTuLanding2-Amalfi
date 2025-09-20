@@ -1,22 +1,23 @@
-import { useState } from "react";
-import { products } from "./data";
-import ItemList from "./components/ItemList";
-import ItemDetail from "./components/ItemDetail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import Contacto from "./components/Contacto";
+import Home from "./components/Home";
 
 function App() {
-  const [selected, setSelected] = useState(null);
-
   return (
-    <div>
-      <h1>Tienda React</h1>
-
-      <h2>Lista de productos</h2>
-      <ItemList products={products} />
-
-      <h2>Detalle de producto</h2>
-      <button onClick={() => setSelected(products[0])}>Ver detalle Producto 1</button>
-      <ItemDetail product={selected} />
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<ItemListContainer greeting="¡Bienvenido a nuestra tienda online!" />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer greeting="Productos por categoría" />} />
+        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="*" element={<h2>404 - Página no encontrada</h2>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
