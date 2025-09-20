@@ -1,42 +1,225 @@
+/* Contenedor principal */
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* NavBar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+nav h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
 }
 
-.card {
-  padding: 2em;
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  transition: color 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
+nav a:hover {
+  color: #007bff;
+}
+
+/* CartWidget */
+.cart-widget {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.cart-widget::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4136;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ItemList */
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Item */
+.item-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 180px;
+  text-align: center;
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.item-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.item-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.item-card p {
+  margin: 0.3rem 0;
+}
+
+/* Botones */
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Botones de Item */
+.btn-carrito, .btn-detalle {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-carrito:hover, .btn-detalle:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Checkout y Cart */
+.checkout, .cart {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.checkout h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.checkout form div {
+  margin-bottom: 1rem;
+}
+
+.checkout label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.checkout input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.checkout form button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Carrito */
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart li span {
+  flex: 1;
+}
+
+.cart h3 {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+/* ItemDetail */
+.item-detail {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.item-detail-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.item-detail-img:hover {
+  transform: scale(1.05);
+}
+
+.item-detail-loading {
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Margen para el ItemCount dentro de la tarjeta */
+.item-card-count {
+  margin-top: 0.5rem;
 }
