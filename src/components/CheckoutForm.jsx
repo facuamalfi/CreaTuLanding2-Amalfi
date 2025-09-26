@@ -20,7 +20,7 @@ const CheckoutForm = () => {
       date: serverTimestamp(),
     };
 
-    const ordersCollection = collection(db, "orders"); // <-- usamos db importado
+    const ordersCollection = collection(db, "orders");
 
     try {
       const docRef = await addDoc(ordersCollection, order);
@@ -33,7 +33,7 @@ const CheckoutForm = () => {
 
   if (orderId) {
     return (
-      <div style={{ padding: "2rem" }}>
+      <div className="checkout-success">
         <h2>¡Compra realizada con éxito!</h2>
         <p>Tu número de orden es: <strong>{orderId}</strong></p>
       </div>
@@ -41,10 +41,10 @@ const CheckoutForm = () => {
   }
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="checkout">
       <h2>Checkout</h2>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="form-group">
           <label>Nombre:</label>
           <input
             type="text"
@@ -53,7 +53,7 @@ const CheckoutForm = () => {
             required
           />
         </div>
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="form-group">
           <label>Email:</label>
           <input
             type="email"
@@ -62,7 +62,7 @@ const CheckoutForm = () => {
             required
           />
         </div>
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="form-group">
           <label>Teléfono:</label>
           <input
             type="tel"
@@ -71,7 +71,7 @@ const CheckoutForm = () => {
             required
           />
         </div>
-        <button type="submit">Finalizar Compra</button>
+        <button type="submit" className="btn-carrito">Finalizar Compra</button>
       </form>
     </div>
   );

@@ -13,14 +13,14 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId]);
 
   return (
-    <main style={{ padding: "2rem", textAlign: "center" }}>
+    <section className="item-list-container">
       <h2>{greeting}</h2>
       {items.length > 0 ? (
         <ItemList items={items} />
       ) : (
-        <p>Cargando productos...</p>
+        <p className="loading">Cargando productos...</p>
       )}
-    </main>
+    </section>
   );
 };
 

@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
   }, [itemId]);
 
   if (!product) {
-    return <p style={{ textAlign: "center", marginTop: "2rem" }}>Cargando producto...</p>;
+    return <p className="loading">Cargando producto...</p>;
   }
 
   return <ItemDetail product={product} />;

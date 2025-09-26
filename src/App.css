@@ -1,14 +1,21 @@
-/* Contenedor principal */
-#root {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* --- GLOBAL --- */
+body {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* fondo general */
 }
 
-/* NavBar */
+#root {
+  width: 100%;
+  padding: 2rem;
+  text-align: left;
+  background-color: #fff; /* contenido principal blanco */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* --- NAVBAR --- */
 nav {
   display: flex;
   justify-content: space-between;
@@ -37,26 +44,48 @@ nav a:hover {
   color: #007bff;
 }
 
-/* CartWidget */
+/* --- CARRITO --- */
 .cart-widget {
   font-size: 1.5rem;
   position: relative;
+  display: inline-block;
 }
 
-.cart-widget::after {
-  content: attr(data-count);
+.cart-widget .cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #ff4136;
+  top: -6px;
+  right: -6px;
+  background-color: #ff4136;
   color: white;
   font-size: 0.75rem;
   padding: 2px 6px;
   border-radius: 50%;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  min-height: 18px;
+  box-sizing: border-box;
 }
 
-/* ItemList */
+/* --- HOME --- */
+.home-container {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.home-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.home-container p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- LISTA DE PRODUCTOS --- */
 .item-list {
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +94,6 @@ nav a:hover {
   margin-top: 2rem;
 }
 
-/* Item */
 .item-card {
   border: 1px solid #ddd;
   padding: 1rem;
@@ -97,7 +125,11 @@ nav a:hover {
   margin: 0.3rem 0;
 }
 
-/* Botones */
+.item-card-count {
+  margin-top: 0.5rem;
+}
+
+/* --- BOTONES --- */
 button {
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -113,19 +145,14 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Botones de Item */
 .btn-carrito, .btn-detalle {
   display: block;
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
-  border: none;
   border-radius: 5px;
   background-color: #007bff;
   color: #fff;
-  cursor: pointer;
-  text-decoration: none;
   text-align: center;
-  transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-carrito:hover, .btn-detalle:hover {
@@ -133,45 +160,22 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Checkout y Cart */
+/* --- CHECKOUT & CART --- */
 .checkout, .cart {
   padding: 2rem;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2rem auto;
   text-align: left;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.checkout h2 {
+.checkout h2, .cart h2 {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.checkout form div {
-  margin-bottom: 1rem;
-}
-
-.checkout label {
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.checkout input {
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.checkout form button {
-  margin-top: 1rem;
-  width: 100%;
-}
-
-/* Carrito */
 .cart ul {
   list-style: none;
   padding: 0;
@@ -185,19 +189,28 @@ button:hover {
   border-bottom: 1px solid #ddd;
 }
 
-.cart li span {
-  flex: 1;
+.cart-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
 }
 
-.cart h3 {
-  margin-top: 1rem;
-  text-align: right;
-}
-
-/* ItemDetail */
+/* --- DETALLE DE PRODUCTO --- */
 .item-detail {
   text-align: center;
   margin-top: 2rem;
+}
+
+.item-detail h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-detail p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
 }
 
 .item-detail-img {
@@ -206,20 +219,17 @@ button:hover {
   object-fit: cover;
   border-radius: 5px;
   transition: transform 0.3s;
+  margin-bottom: 1rem;
 }
 
 .item-detail-img:hover {
   transform: scale(1.05);
 }
 
-.item-detail-loading {
+/* --- MENSAJES DE CARGA O VACÍO --- */
+.loading, .no-products, .cart-empty, .checkout-success {
   text-align: center;
-  margin-top: 2rem;
   font-style: italic;
   color: #666;
-}
-
-/* Margen para el ItemCount dentro de la tarjeta */
-.item-card-count {
-  margin-top: 0.5rem;
+  margin-top: 2rem;
 }

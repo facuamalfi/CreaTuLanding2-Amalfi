@@ -14,14 +14,46 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
+          {/* Página de inicio */}
           <Route path="/" element={<Home />} />
-          <Route path="/productos" element={<ItemListContainer greeting="¡Bienvenido a nuestra tienda online!" />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer greeting="Productos por categoría" />} />
+
+          {/* Listado de productos */}
+          <Route
+            path="/productos"
+            element={
+              <ItemListContainer greeting="¡Bienvenido a nuestra tienda online!" />
+            }
+          />
+
+          {/* Productos por categoría */}
+          <Route
+            path="/category/:categoryId"
+            element={
+              <ItemListContainer greeting="Productos por categoría" />
+            }
+          />
+
+          {/* Detalle de producto */}
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+
+          {/* Contacto */}
           <Route path="/contacto" element={<Contacto />} />
+
+          {/* Carrito */}
           <Route path="/cart" element={<Cart />} />
+
+          {/* Checkout */}
           <Route path="/checkout" element={<CheckoutForm />} />
-          <Route path="*" element={<h2>404 - Página no encontrada</h2>} />
+
+          {/* 404 */}
+          <Route
+            path="*"
+            element={
+              <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
+                404 - Página no encontrada
+              </h2>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </CartProvider>

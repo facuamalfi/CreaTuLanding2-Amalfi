@@ -1,9 +1,10 @@
+// src/components/Home.jsx
 const Home = () => {
   return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+    <section className="home-container">
       <h2>Bienvenido a Mi Tienda</h2>
       <p>Explora nuestros productos y encuentra lo que más te gusta.</p>
-    </div>
+    </section>
   );
 };
 

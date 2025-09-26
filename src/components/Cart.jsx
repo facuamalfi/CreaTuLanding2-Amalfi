@@ -7,34 +7,33 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div style={{ padding: "2rem" }}>
+      <div className="cart-empty">
         <h2>El carrito está vacío</h2>
-        <Link to="/productos">Ir a comprar</Link>
+        <Link to="/productos" className="btn-detalle">Ir a comprar</Link>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="cart">
       <h2>Carrito de Compras</h2>
       <ul>
         {cart.map((item) => (
-          <li key={item.id} style={{ marginBottom: "1rem" }}>
+          <li key={item.id}>
             <span>{item.name} - ${item.price} x {item.quantity}</span>
-            <button
-              style={{ marginLeft: "1rem" }}
-              onClick={() => removeFromCart(item.id)}
-            >
+            <button className="btn-detalle" onClick={() => removeFromCart(item.id)}>
               Eliminar
             </button>
           </li>
         ))}
       </ul>
       <h3>Total: ${totalPrice}</h3>
-      <button onClick={clearCart} style={{ marginRight: "1rem" }}>Vaciar Carrito</button>
-      <Link to="/checkout">
-        <button>Finalizar Compra</button>
-      </Link>
+      <div className="cart-actions">
+        <button className="btn-detalle" onClick={clearCart}>Vaciar Carrito</button>
+        <Link to="/checkout">
+          <button className="btn-carrito">Finalizar Compra</button>
+        </Link>
+      </div>
     </div>
   );
 };
