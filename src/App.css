@@ -3,14 +3,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9; /* fondo general */
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 #root {
   width: 100%;
   padding: 2rem;
   text-align: left;
-  background-color: #fff; /* contenido principal blanco */
+  background-color: #fff;
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -113,16 +114,19 @@ nav a:hover {
   width: 150px;
   height: 150px;
   object-fit: cover;
+  object-position: center;
   border-radius: 5px;
 }
 
 .item-card h3 {
   margin: 0.5rem 0;
   font-size: 1.1rem;
+  color: #333;
 }
 
 .item-card p {
   margin: 0.3rem 0;
+  color: #333;
 }
 
 .item-card-count {
@@ -174,6 +178,7 @@ button:hover {
 .checkout h2, .cart h2 {
   text-align: center;
   margin-bottom: 1rem;
+  color: #333;
 }
 
 .cart ul {
@@ -187,6 +192,7 @@ button:hover {
   align-items: center;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
+  color: #333;
 }
 
 .cart-actions {
@@ -205,6 +211,7 @@ button:hover {
 .item-detail h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  color: #333;
 }
 
 .item-detail p {
@@ -232,4 +239,25 @@ button:hover {
   font-style: italic;
   color: #666;
   margin-top: 2rem;
+}
+
+/* --- INPUTS Y TEXTAREA CHECKOUT --- */
+.checkout input,
+.checkout textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  font-size: 1rem;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.checkout input:focus,
+.checkout textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0,123,255,0.5);
 }
